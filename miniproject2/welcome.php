@@ -38,8 +38,9 @@ while($totRec!=0)
        if($result!=''  && $result2!='')
         {echo "
         <tr>
-            <td border= align='center'><a href='user_detail.php?imageid=$result[image]&name=$_SESSION[username]'><img width='50%' src= '".$result['image']."' class='rounded mx-auto d-block' alt='not found'></a></td>
-            <td align='center'><a href='user_detail.php?imageid=$result2[image]&name=$_SESSION[username]'><img width='50%' src= '".$result2['image']."' class='rounded mx-auto d-block' alt='not found'></a></td>        
+            <td align='center'><a href='user_detail.php?imageid=$result1[image]&name=$_SESSION[username]'><img width='40%' src= '".$result1['image']."' class='rounded mx-auto d-block' alt='not found'></a></td>
+            <td align='center'><a href='user_detail.php?imageid=$result2[image]&name=$_SESSION[username]'><img width='40%' src= '".$result2['image']."' class='rounded mx-auto d-block' alt='not found'></a></td>
+            <td align='center'><a href='user_detail.php?imageid=$result3[image]&name=$_SESSION[username]'><img width='40%' src= '".$result3['image']."' class='rounded mx-auto d-block' alt='not found'></a></td>        
         </tr>
         ";
         }
