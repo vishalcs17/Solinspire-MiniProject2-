@@ -32,10 +32,11 @@ while($totRec!=0)
     
     <table method ="GET" class="table table-striped table-dark">
        <?php
-       $result = mysqli_fetch_array($data);
+       $result1 = mysqli_fetch_array($data);
        $result2 = mysqli_fetch_array($data);
+       $result3 = mysqli_fetch_array($data);
 
-       if($result!=''  && $result2!='')
+       if($result1!=''  && $result2!='' && $result3!='')
         {echo "
         <tr>
             <td align='center'><a href='user_detail.php?imageid=$result1[image]&name=$_SESSION[username]'><img width='40%' src= '".$result1['image']."' class='rounded mx-auto d-block' alt='not found'></a></td>
@@ -49,10 +50,6 @@ while($totRec!=0)
         
     $totRec--;
 }
-/* else
-{
-    echo "No Records found";
-} */
 ?>
 </table>
 

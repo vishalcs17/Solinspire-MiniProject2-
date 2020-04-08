@@ -1,12 +1,11 @@
-  <?php
-  session_start();
-  $username_err = $contact_err = $cname_err = $address_err = "";
-
-  ?>
-
-
-  
-  <!DOCTYPE html>
+<?php
+session_start();
+require_once 'config.php';
+error_reporting(0);
+if($_SESSION["loggedin"]==false) {
+    header("Location:index.php");
+}
+?>
   <html lang="en">
   <head>
       <meta charset="UTF-8">
@@ -20,7 +19,7 @@
   <body>
       <div class="wrapper">
           <h2>User-Detail</h2>
-          <p>Please fill out this form to know your details.</p></div>
+          <p>Please fill out this form to know your details for card.</p></div>
           <div class = "wrapper"> 
             <form action="" method="POST"> 
                   <div>
@@ -54,11 +53,15 @@
                   <span class="help-block"><?php echo $address_err; ?></span>
               </div></br>
               <div class="form-group">
-                  <input type="submit" name='submit' class="btn btn-success" value="Submit">
-                  <a class="btn btn-link" href="welcome.php">Cancel</a>
+                  <input type="submit" name='submit' class="btn btn-success" value="Go to payment">
+                  <input type="submit" name='cancel' class="btn btn-danger" value="Cancel">
+                  
               </div>
               </form>
-              <?php
+              
+              
+
+<?php
 
   include_once "config.php";
 
@@ -84,11 +87,10 @@
           }
           else
           {
-            session_start();
-            $_SESSION = array();
-            session_destroy();
-            header("location: payment.php");
-            exit;
+            
+            header("location:payment.php?name=$name&phone=$phone&email=$email");
+
+            
           }
       
       }   
@@ -97,6 +99,11 @@
           }
 
       }
+
+    if(isset($_POST['cancel']))
+    {
+        header("Location:welcome.php");
+    }
   ?>
     </div>    
   </body>
